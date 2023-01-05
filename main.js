@@ -2,6 +2,9 @@
 (function() {
     "use strict";
 
+   // Empty array used for calculating answers
+    const calculation = [];
+
 
 console.log("HELLO");
 
@@ -29,7 +32,6 @@ const $clearButton = document.querySelector(".clear");
 
 // Each query captures a numerical button.
 // I think it is possible to use an array here. Not sure how
-
 const $button0 = document.querySelector('.number[value="0"]');
 const $button1 = document.querySelector('.number[value="1"]');
 const $button2 = document.querySelector('.number[value="2"]');
@@ -43,13 +45,72 @@ const $button9 = document.querySelector('.number[value="9"]');
 
 
 
+
+// Action buttons
 $clearButton.addEventListener('click', () => {
     console.log("TEST");
 });
 
+
+
+
+
+
+
+// Numerical input buttons
+
+$button0.addEventListener('click', () => {
+    console.log("Button 0");
+});
+
 $button1.addEventListener('click', () => {
     console.log("Button 1");
+    pushNumber();
 });
+
+$button2.addEventListener('click', () => {
+    console.log("Button 2");
+});
+
+$button3.addEventListener('click', () => {
+    console.log("Button 3");
+});
+
+$button4.addEventListener('click', () => {
+    console.log("Button 4");
+});
+
+$button5.addEventListener('click', () => {
+    console.log("Button 5");
+});
+
+$button6.addEventListener('click', () => {
+    console.log("Button 6");
+});
+
+$button7.addEventListener('click', () => {
+    console.log("Button 7");
+});
+
+$button8.addEventListener('click', () => {
+    console.log("Button 8");
+});
+
+$button9.addEventListener('click', () => {
+    console.log("Button 9");
+});
+
+
+function pushNumber() {
+    // This function should alert()s the number associated with its event argument when called; 
+    // add this function as an event listener for the number buttons
+
+    alert("WORLD");
+};
+
+function pushOperator(){
+
+};
 
 
 })();
