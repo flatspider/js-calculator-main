@@ -65,13 +65,13 @@ const $button9 = document.querySelector('.number[value="9"]');
 // Action buttons
 $clearButton.addEventListener('click', () => {
     console.log("clear");
+    calculation = []; // Empties out calculation bracket.
 });
 
 $percentButton.addEventListener('click', () => {
     console.log("percent");
+    // Converts a fraction into a percentage.
 });
-
-
 
 $divideButton.addEventListener('click', () => {
     console.log("divide");
@@ -91,6 +91,7 @@ $additionButton.addEventListener('click', () => {
 
 $equalityButton.addEventListener('click', () => {
     console.log("equality");
+    calculate(); // This should look at the current value of the array.
 });
 
 
@@ -98,9 +99,6 @@ $equalityButton.addEventListener('click', () => {
 
 
 
-
-// For equals (=) button 
-// Using a for loop, alert() the calculation when = is pressed
 
 
 
@@ -166,9 +164,33 @@ function pushOperator(input){
 };
 
 function calculate() {
+
     // Define a function named calculate that alerts() = when pressed;
+    alert("=");
+
+
+
+    
     // add this function as an event listener for the = button
     // Probably want an input for this? That calculates and returns a value?
+
+    // For equals (=) button 
+    // Using a for loop, alert() the calculation when = is pressed
+
+    // Imagine an array of values loaded in. 
+
+    // [5, +, 2]
+
+    // When equals is pressed, calculate is triggered. 
+
+    // Cycle through the array. 
+
+    // If array[0] is a number, store it in a variable
+    // If array[1] is a symbol, store it in a variable
+    // Check what symbol it is. Use that to run the calculation.
+    // Return the value.
+
+
 }
 
 
