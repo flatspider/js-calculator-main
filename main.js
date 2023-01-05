@@ -34,11 +34,12 @@ const $clearButton = document.querySelector(".clear");
 // const $positiveNegativeButton = document.querySelector(".plus-minus");
 
 const $percentButton = document.querySelector(".percent");
-// const $divideButton = document.querySelector(".operator[value="/"]"); //May have issue with escaping slashes.
-// const $multiplyButton = document.querySelector(".operator[value="*"]");
-// const $subtractionButton = document.querySelector(".operator[value="-"]");
-// const $additionButton = document.querySelector(".operator[value="+"]");
- const $equalityButton = document.querySelector('.equal-sign[value="="]');
+const $divideButton = document.querySelector('.operator[value="/"]'); //May have issue with escaping slashes.
+const $multiplyButton = document.querySelector('.operator[value="*"]');
+const $subtractionButton = document.querySelector('.operator[value="-"]');
+const $additionButton = document.querySelector('.operator[value="+"]');
+const $equalityButton = document.querySelector('.equal-sign[value="="]');
+const $decimalButton = document.querySelector('.decimal');
 
 
 
@@ -71,7 +72,6 @@ $percentButton.addEventListener('click', () => {
 });
 
 
-/*
 
 $divideButton.addEventListener('click', () => {
     console.log("divide");
@@ -88,9 +88,6 @@ $subtractionButton.addEventListener('click', () => {
 $additionButton.addEventListener('click', () => {
     console.log("addition");
 });
-
-
-*/
 
 $equalityButton.addEventListener('click', () => {
     console.log("equality");
