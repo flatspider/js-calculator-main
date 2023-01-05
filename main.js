@@ -52,7 +52,8 @@ $clearButton.addEventListener('click', () => {
 });
 
 
-
+// For equals (=) button 
+// Using a for loop, alert() the calculation when = is pressed
 
 
 
@@ -108,9 +109,20 @@ function pushNumber() {
     alert("WORLD");
 };
 
-function pushOperator(){
+function pushOperator(input){
+
+    alert(input);
+
+   // Define a function named pushOperator that alert()s the operator (+, -, *, /, C) associated with its event argument when called; 
+   // add this function as an event listener for the operator buttons
 
 };
+
+function calculate() {
+    // Define a function named calculate that alerts() = when pressed;
+    // add this function as an event listener for the = button
+    // Probably want an input for this? That calculates and returns a value?
+}
 
 
 })();
