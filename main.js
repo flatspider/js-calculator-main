@@ -28,7 +28,22 @@ console.log("HELLO");
 
 // Identify the buttons
 
+// Each query looks at an action button. 
+
 const $clearButton = document.querySelector(".clear");
+// const $positiveNegativeButton = document.querySelector(".plus-minus");
+
+const $percentButton = document.querySelector(".percent");
+const $divideButton = document.querySelector(".operator[value="/"]"); //May have issue with escaping slashes.
+const $multiplyButton = document.querySelector(".operator[value="*"]");
+const $subtractionButton = document.querySelector(".operator[value="-"]");
+const $additionButton = document.querySelector(".operator[value="+"]");
+const $equalityButton = document.querySelector(".operator[value="="]");
+
+
+
+
+
 
 // Each query captures a numerical button.
 // I think it is possible to use an array here. Not sure how
