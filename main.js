@@ -5,14 +5,12 @@
 // Empty array used for calculating answers
 const calculation = [];
 
-console.log("HELLO");
-
 const $clearButton = document.querySelector(".clear");
 // const $positiveNegativeButton = document.querySelector(".plus-minus");
 const $percentButton = document.querySelector(".percent");
 const $equalityButton = document.querySelector('.equal-sign[value="="]');
 
-const $decimalButton = document.querySelector('.decimal');
+//const $decimalButton = document.querySelector('.decimal');
 
 // Numerical buttons
 const $buttonPressDigit = document.querySelectorAll('.number');
@@ -28,28 +26,30 @@ for(let i = 0; i < $operatorPress.length; i++){
 
 // Action buttons
 $clearButton.addEventListener('click', () => {
-    console.log("clear");
+    //console.log("clear");
     calculation.length = 0; // Empties out calculation bracket. Strict mode does not like setting array to [].
 });
+
+/* Not currently active
 
 $percentButton.addEventListener('click', () => {
     console.log("percent");
     // Converts a fraction into a percentage.
 });
+*/
 
 $equalityButton.addEventListener('click', calculate);
 
 
 // Functions below
-
 function pushNumber() {
     // This function should alert()s the number associated with its event argument when called; 
     // add this function as an event listener for the number buttons
 
     let number = this.innerHTML;
     calculation.push(number);
-    console.log(number);
-    //alert(number);
+    //console.log(number);
+    alert(number);
 };
 
 function pushOperator() {
@@ -75,15 +75,13 @@ function calculate() {
 
     let isSecondNumber = false; // Which number is this array being used for? 
  
-    console.log(calculation);
-
     for (let i = 0; i < calculation.length; i++){
 
         if (!operatorArray.includes(calculation[i]) && isSecondNumber == false) {
-            console.log("number");
+            //console.log("number");
             firstNumber.push(calculation[i]);
         } else if (operatorArray.includes(calculation[i])){
-            console.log("operator");
+            //console.log("operator");
             useOperator.push(calculation[i]);
             isSecondNumber = true;
         } else {
@@ -92,20 +90,22 @@ function calculate() {
     }
 
     //This is the divisor being passed.... ÷
-
-
-
+    /*
     console.log(firstNumber);
     console.log(secondNumber);
     console.log(useOperator);
+    */
 
     let joinedNumber1 = firstNumber.join("");
     let joinedNumber2 = secondNumber.join("");
     let joinedOperator = useOperator.join("");
 
+
+    /*
     console.log(joinedNumber1);
     console.log(joinedNumber2);
     console.log(joinedOperator);
+    */
 
 
 
@@ -115,7 +115,6 @@ function calculate() {
     } else if (useOperator == "-") {
         alert(subtract(joinedNumber1, joinedNumber2));
     } else if (useOperator == "×") {
-        console.log("multiply");
         alert(multiply(joinedNumber1, joinedNumber2));
     } else {
          alert(divide(joinedNumber1, joinedNumber2));
@@ -133,51 +132,9 @@ function calculate() {
 
     // Alert the result in the browser window.
 
-/*
-
-    if (calculation.length === 0) { // Or if it does not have number, operator, number....What if 3456 then equal? Display it.
-        // alert("NO VALUES");
-    } else {
-
-        calculation.join();
-
-        calculation.split()
-
-
-        // Look at the array. [2,5,/,5] There is no equals sign pushed to the array. 
-
-        // Split the array on a non number. 
-
-        // May need to join the array to a string. 
-
-        // String of first number.
-
-        // Operator symbol.
-
-        // String of second number.
-
-        // If operator symbol equals /*-+, call the respective function, passing in the two numbers.
-        
-        // Alert the value to your browser and clear array?
-
-        // Cycle through array. IF typeOf = number, add to firstNum array. 
-        // If not a num, add to operator string. 
-
-
-        for (let i = 0; i < calculation.length; i++){
-
-            if (calculation[i].typeOf === "+") {
-                sum()
-
-            }
-
-
-
-
-        }
-
     }
-    */
+
+
 
 
 
@@ -197,31 +154,6 @@ function calculate() {
         return parseInt(num1) / parseInt(num2);
     }
 
-}
-
-    
-    // add this function as an event listener for the = button
-    // Probably want an input for this? That calculates and returns a value?
-
-    // For equals (=) button 
-    // Using a for loop, alert() the calculation when = is pressed
-
-    // Imagine an array of values loaded in. 
-
-    // [5, +, 2]
-
-    // How do you add in multiple digits? They will need to always concatenate until an operator is pressed.
-
-    // When equals is pressed, calculate is triggered. 
-
-    // Cycle through the array. 
-
-    // If array[0] is a number, store it in a variable
-    // If array[1] is a symbol, store it in a variable
-    // Check what symbol it is. Use that to run the calculation.
-    // Return the value.
-
-    // How do I pass values into the array in a simple way? 
 
 
 
