@@ -65,6 +65,8 @@ function calculate() {
     // Define a function named calculate that alerts() = when pressed;
     //alert("=");
 
+    const operatorArray = ['+', '-', '*', '/'];
+
     let useOperator = []; // What function should be called? 
 
     let firstNumber = []; // The first number typed into calculator
@@ -77,17 +79,18 @@ function calculate() {
 
     // Create a number tracker. 
 
-    // Cycle through array. If number =0, and array element is number, add to firstNumber array. 
+    // Cycle through array. If number = 0, and array element is number, add to firstNumber array. 
 
     console.log(calculation);
 
-    for (let i = 0; i < calculation.length; i++){
-        
+    
 
-        if ('0123456789'.match(calculation[i]) && isSecondNumber == false) {
+    for (let i = 0; i < calculation.length; i++){
+
+        if (!operatorArray.includes(calculation[i]) && isSecondNumber == false) {
             console.log("number");
             firstNumber.push(calculation[i]);
-        } else if (!'0123456789'.match(calculation[i])){
+        } else if (operatorArray.includes(calculation[i])){
             console.log("operator");
             useOperator.push(calculation[i]);
             isSecondNumber = true;
@@ -96,6 +99,10 @@ function calculate() {
         }
 
     }
+
+    console.log(firstNumber);
+    console.log(secondNumber);
+    console.log(useOperator);
 
 
 
