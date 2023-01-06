@@ -65,7 +65,7 @@ function calculate() {
     // Define a function named calculate that alerts() = when pressed;
     //alert("=");
 
-    const operatorArray = ['+', '-', 'x', '/'];
+    const operatorArray = ['+', '-', 'x', '/', '÷', '×'];
 
     let useOperator = []; // What function should be called? 
 
@@ -74,16 +74,8 @@ function calculate() {
     let secondNumber = []; // The second number typed in.
 
     let isSecondNumber = false; // Which number is this array being used for? 
-
-    // Might need a little logic. 
-
-    // Create a number tracker. 
-
-    // Cycle through array. If number = 0, and array element is number, add to firstNumber array. 
-
+ 
     console.log(calculation);
-
-    
 
     for (let i = 0; i < calculation.length; i++){
 
@@ -98,6 +90,10 @@ function calculate() {
             secondNumber.push(calculation[i]);
         }
     }
+
+    //This is the divisor being passed.... ÷
+
+
 
     console.log(firstNumber);
     console.log(secondNumber);
@@ -118,7 +114,8 @@ function calculate() {
         alert(sum(joinedNumber1, joinedNumber2));
     } else if (useOperator == "-") {
         alert(subtract(joinedNumber1, joinedNumber2));
-    } else if (useOperator == "x") {
+    } else if (useOperator == "×") {
+        console.log("multiply");
         alert(multiply(joinedNumber1, joinedNumber2));
     } else {
          alert(divide(joinedNumber1, joinedNumber2));
