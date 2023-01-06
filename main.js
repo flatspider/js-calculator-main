@@ -65,7 +65,7 @@ function calculate() {
     // Define a function named calculate that alerts() = when pressed;
     //alert("=");
 
-    const operatorArray = ['+', '-', '*', '/'];
+    const operatorArray = ['+', '-', 'x', '/'];
 
     let useOperator = []; // What function should be called? 
 
@@ -97,14 +97,32 @@ function calculate() {
         } else {
             secondNumber.push(calculation[i]);
         }
-
     }
 
     console.log(firstNumber);
     console.log(secondNumber);
     console.log(useOperator);
 
+    let joinedNumber1 = firstNumber.join("");
+    let joinedNumber2 = secondNumber.join("");
+    let joinedOperator = useOperator.join("");
 
+    console.log(joinedNumber1);
+    console.log(joinedNumber2);
+    console.log(joinedOperator);
+
+
+
+
+    if (useOperator == "+") {
+        alert(sum(joinedNumber1, joinedNumber2));
+    } else if (useOperator == "-") {
+        alert(subtract(joinedNumber1, joinedNumber2));
+    } else if (useOperator == "x") {
+        alert(multiply(joinedNumber1, joinedNumber2));
+    } else {
+         alert(divide(joinedNumber1, joinedNumber2));
+    }
 
 
 
@@ -167,19 +185,19 @@ function calculate() {
 
 
     function sum(num1, num2) {
-        return num1 + num2;
+        return parseInt(num1) + parseInt(num2);
     }
 
     function subtract(num1, num2) {
-        return num1 - num2;
+        return parseInt(num1) - parseInt(num2);
     }
 
     function multiply(num1, num2){
-        return num1 - num2;
+        return parseInt(num1) * parseInt(num2);
     }
 
     function divide(num1, num2){
-        return num1 / num2;
+        return parseInt(num1) / parseInt(num2);
     }
 
 }
