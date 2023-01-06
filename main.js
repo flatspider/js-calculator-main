@@ -1,52 +1,29 @@
-
 (function() {
     "use strict";
 
-   // Empty array used for calculating answers
-    const calculation = [];
 
+// Empty array used for calculating answers
+const calculation = [];
 
 console.log("HELLO");
 
 const $clearButton = document.querySelector(".clear");
-
 // const $positiveNegativeButton = document.querySelector(".plus-minus");
-
 const $percentButton = document.querySelector(".percent");
-
 const $equalityButton = document.querySelector('.equal-sign[value="="]');
 
 const $decimalButton = document.querySelector('.decimal');
 
-
-/*
-
-const $divideButton = document.querySelector('.operator[value="/"]'); //May have issue with escaping slashes.
-const $multiplyButton = document.querySelector('.operator[value="*"]');
-const $subtractionButton = document.querySelector('.operator[value="-"]');
-const $additionButton = document.querySelector('.operator[value="+"]');
-
-*/
-
-
-
-
 // Numerical buttons
 const $buttonPressDigit = document.querySelectorAll('.number');
-
 for(let i = 0; i < $buttonPressDigit.length; i++){
-
     $buttonPressDigit[i].addEventListener('click', pushNumber);
-
 };
-
 
 // Operator buttons
 const $operatorPress = document.querySelectorAll('.operator');
 for(let i = 0; i < $operatorPress.length; i++){
-
     $operatorPress[i].addEventListener('click', pushOperator);
-
 };
 
 // Action buttons
@@ -60,41 +37,39 @@ $percentButton.addEventListener('click', () => {
     // Converts a fraction into a percentage.
 });
 
+$equalityButton.addEventListener('click', calculate);
 
-$equalityButton.addEventListener('click', calculate());
+
+// Functions below
 
 function pushNumber() {
     // This function should alert()s the number associated with its event argument when called; 
     // add this function as an event listener for the number buttons
 
     let number = this.innerHTML;
-
     calculation.push(number);
-    alert(number);
+    console.log(number);
+    //alert(number);
 };
 
 function pushOperator() {
-
     // Define a function named pushOperator that alert()s the operator (+, -, *, /, C) associated with its event argument when called; 
     // add this function as an event listener for the operator buttons
-
     let operatorValue = this.innerHTML;
-
     calculation.push(operatorValue);
-
     alert(operatorValue);
 };
 
 function calculate() {
 
     // Define a function named calculate that alerts() = when pressed;
-    alert("=");
+    //alert("=");
 
-    let useOperator; // What function should be called? 
+    let useOperator = []; // What function should be called? 
 
-    let firstNumber; // The first number typed into calculator
+    let firstNumber = []; // The first number typed into calculator
 
-    let secondNumber; // The second number typed in.
+    let secondNumber = []; // The second number typed in.
 
     let isSecondNumber = false; // Which number is this array being used for? 
 
@@ -103,6 +78,28 @@ function calculate() {
     // Create a number tracker. 
 
     // Cycle through array. If number =0, and array element is number, add to firstNumber array. 
+
+    console.log(calculation);
+
+    for (let i = 0; i < calculation.length; i++){
+        
+
+        if ('0123456789'.match(calculation[i]) && isSecondNumber == false) {
+            console.log("number");
+            firstNumber.push(calculation[i]);
+        } else if (!'0123456789'.match(calculation[i])){
+            console.log("operator");
+            useOperator.push(calculation[i]);
+            isSecondNumber = true;
+        } else {
+            secondNumber.push(calculation[i]);
+        }
+
+    }
+
+
+
+
 
     // If array element = /+-*, add to operator array and set secondNumber to true.
 
@@ -114,11 +111,10 @@ function calculate() {
 
     // Alert the result in the browser window.
 
-
-
+/*
 
     if (calculation.length === 0) { // Or if it does not have number, operator, number....What if 3456 then equal? Display it.
-        alert("NO VALUES");
+        // alert("NO VALUES");
     } else {
 
         calculation.join();
@@ -146,8 +142,6 @@ function calculate() {
         // If not a num, add to operator string. 
 
 
-
-
         for (let i = 0; i < calculation.length; i++){
 
             if (calculation[i].typeOf === "+") {
@@ -160,20 +154,10 @@ function calculate() {
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
+    */
+
+
 
     function sum(num1, num2) {
         return num1 + num2;
@@ -191,7 +175,7 @@ function calculate() {
         return num1 / num2;
     }
 
-
+}
 
     
     // add this function as an event listener for the = button
@@ -218,7 +202,7 @@ function calculate() {
     // How do I pass values into the array in a simple way? 
 
 
-}
+
 
 
 })();
