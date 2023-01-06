@@ -47,6 +47,44 @@ const $decimalButton = document.querySelector('.decimal');
 
 
 // Each query captures a numerical button.
+
+
+let $buttonPressDigit = document.querySelectorAll('.number');
+
+
+console.log($buttonPressDigit.length);
+
+//Below returns the value. Add that value to the array!
+
+console.log($buttonPressDigit[9].innerHTML);
+
+
+for(let i = 0; i < $buttonPressDigit.length; i++){
+
+
+
+    $buttonPressDigit[i].addEventListener('click', pushNumber);
+
+    /*
+
+    $buttonPressDigit[i].addEventListener('click', () => {
+        //console.log($buttonPressDigit[i][value]);
+
+        calculation.push($buttonPressDigit[i].innerHTML);
+
+        console.log(calculation);
+
+
+        //calculation = []; // Empties out calculation bracket.
+    });
+
+    */
+
+
+};
+
+/*
+
 // I think it is possible to use an array here. Not sure how
 const $button0 = document.querySelector('.number[value="0"]');
 const $button1 = document.querySelector('.number[value="1"]');
@@ -59,8 +97,7 @@ const $button7 = document.querySelector('.number[value="7"]');
 const $button8 = document.querySelector('.number[value="8"]');
 const $button9 = document.querySelector('.number[value="9"]');
 
-
-
+*/
 
 // Action buttons
 $clearButton.addEventListener('click', () => {
@@ -98,60 +135,16 @@ $equalityButton.addEventListener('click', () => {
 
 
 
-
-
-
-
-
-// Numerical input buttons
-
-$button0.addEventListener('click', () => {
-    console.log("Button 0");
-});
-
-$button1.addEventListener('click', () => {
-    console.log("Button 1");
-    pushNumber();
-});
-
-$button2.addEventListener('click', () => {
-    console.log("Button 2");
-});
-
-$button3.addEventListener('click', () => {
-    console.log("Button 3");
-});
-
-$button4.addEventListener('click', () => {
-    console.log("Button 4");
-});
-
-$button5.addEventListener('click', () => {
-    console.log("Button 5");
-});
-
-$button6.addEventListener('click', () => {
-    console.log("Button 6");
-});
-
-$button7.addEventListener('click', () => {
-    console.log("Button 7");
-});
-
-$button8.addEventListener('click', () => {
-    console.log("Button 8");
-});
-
-$button9.addEventListener('click', () => {
-    console.log("Button 9");
-});
-
-
 function pushNumber() {
     // This function should alert()s the number associated with its event argument when called; 
     // add this function as an event listener for the number buttons
+    let number = this.innerHTML;
 
-    alert("WORLD");
+    calculation.push(number);
+
+    console.log(calculation);
+
+    alert(number);
 };
 
 function pushOperator(input){
@@ -181,6 +174,8 @@ function calculate() {
 
     // [5, +, 2]
 
+    // How do you add in multiple digits? They will need to always concatenate until an operator is pressed.
+
     // When equals is pressed, calculate is triggered. 
 
     // Cycle through the array. 
@@ -189,6 +184,8 @@ function calculate() {
     // If array[1] is a symbol, store it in a variable
     // Check what symbol it is. Use that to run the calculation.
     // Return the value.
+
+    // How do I pass values into the array in a simple way? 
 
 
 }
