@@ -8,107 +8,66 @@
 
 console.log("HELLO");
 
-// Use event listeners to look for button clicks. 
-
-// When button is click, load corresponding value onto an array. 
-
-// Can use concatenation, or evaluate the expression. 
-
-// 5 + 5 = 
-
-// Input as a string. Then break apart the values. Can you chain them?
-
-//There should be an array containing everything that is being calculated. 
-
-// Pressing the clear button causes the array to be reset to empty.
-
-// What if there is a plus? 
-
-// How do you set the temporary result? 
-
-// Identify the buttons
-
-// Each query looks at an action button. 
-
 const $clearButton = document.querySelector(".clear");
+
 // const $positiveNegativeButton = document.querySelector(".plus-minus");
 
 const $percentButton = document.querySelector(".percent");
+
+const $equalityButton = document.querySelector('.equal-sign[value="="]');
+
+const $decimalButton = document.querySelector('.decimal');
+
+
+/*
+
 const $divideButton = document.querySelector('.operator[value="/"]'); //May have issue with escaping slashes.
 const $multiplyButton = document.querySelector('.operator[value="*"]');
 const $subtractionButton = document.querySelector('.operator[value="-"]');
 const $additionButton = document.querySelector('.operator[value="+"]');
-const $equalityButton = document.querySelector('.equal-sign[value="="]');
-const $decimalButton = document.querySelector('.decimal');
 
-
+*/
 
 
 
 
 // Each query captures a numerical button.
 
-
-let $buttonPressDigit = document.querySelectorAll('.number');
-
-
-console.log($buttonPressDigit.length);
-
-//Below returns the value. Add that value to the array!
-
-console.log($buttonPressDigit[9].innerHTML);
-
+const $buttonPressDigit = document.querySelectorAll('.number');
 
 for(let i = 0; i < $buttonPressDigit.length; i++){
 
-
-
     $buttonPressDigit[i].addEventListener('click', pushNumber);
-
-    /*
-
-    $buttonPressDigit[i].addEventListener('click', () => {
-        //console.log($buttonPressDigit[i][value]);
-
-        calculation.push($buttonPressDigit[i].innerHTML);
-
-        console.log(calculation);
-
-
-        //calculation = []; // Empties out calculation bracket.
-    });
-
-    */
-
 
 };
 
-/*
+const $operatorPress = document.querySelectorAll('.operator');
 
-// I think it is possible to use an array here. Not sure how
-const $button0 = document.querySelector('.number[value="0"]');
-const $button1 = document.querySelector('.number[value="1"]');
-const $button2 = document.querySelector('.number[value="2"]');
-const $button3 = document.querySelector('.number[value="3"]');
-const $button4 = document.querySelector('.number[value="4"]');
-const $button5 = document.querySelector('.number[value="5"]');
-const $button6 = document.querySelector('.number[value="6"]');
-const $button7 = document.querySelector('.number[value="7"]');
-const $button8 = document.querySelector('.number[value="8"]');
-const $button9 = document.querySelector('.number[value="9"]');
+for(let i = 0; i < $operatorPress.length; i++){
 
-*/
+    $operatorPress[i].addEventListener('click', pushOperator);
+
+};
+
+
 
 // Action buttons
 $clearButton.addEventListener('click', () => {
     console.log("clear");
-    calculation = []; // Empties out calculation bracket.
+    calculation.length = 0; // Empties out calculation bracket. Strict mode does not like setting array to [].
 });
 
 $percentButton.addEventListener('click', () => {
     console.log("percent");
     // Converts a fraction into a percentage.
 });
+
+
+$equalityButton.addEventListener('click', calculate());
+
+
+
+/*
 
 $divideButton.addEventListener('click', () => {
     console.log("divide");
@@ -126,40 +85,89 @@ $additionButton.addEventListener('click', () => {
     console.log("addition");
 });
 
-$equalityButton.addEventListener('click', () => {
-    console.log("equality");
-    calculate(); // This should look at the current value of the array.
-});
 
 
-
+*/
 
 
 function pushNumber() {
     // This function should alert()s the number associated with its event argument when called; 
     // add this function as an event listener for the number buttons
+
     let number = this.innerHTML;
 
     calculation.push(number);
-
-    console.log(calculation);
-
     alert(number);
 };
 
-function pushOperator(input){
+function pushOperator() {
 
-    alert(input);
+    // Define a function named pushOperator that alert()s the operator (+, -, *, /, C) associated with its event argument when called; 
+    // add this function as an event listener for the operator buttons
 
-   // Define a function named pushOperator that alert()s the operator (+, -, *, /, C) associated with its event argument when called; 
-   // add this function as an event listener for the operator buttons
+    let operatorValue = this.innerHTML;
 
+    calculation.push(operatorValue);
+
+    alert(operatorValue);
 };
 
 function calculate() {
 
     // Define a function named calculate that alerts() = when pressed;
     alert("=");
+
+    if (calculation.length === 0) {
+        alert("NO VALUES");
+    } else {
+
+
+        // Look at the array. [2,5,/,5] There is no equals sign pushed to the array. 
+
+        // Split the array on a non number. 
+
+        // May need to join the array to a string. 
+
+        // String of first number.
+
+        // Operator symbol.
+
+        // String of second number.
+
+        // If operator symbol equals /*-+, call the respective function, passing in the two numbers.
+        
+        // Alert the value to your browser and clear array?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    function sum(num1, num2) {
+        return num1 + num2;
+    }
+
+    function subtract(num1, num2) {
+        return num1 - num2;
+    }
+
+    function multiply(num1, num2){
+        return num1 - num2;
+    }
+
+    function divide(num1, num2){
+        return num1 / num2;
+    }
 
 
 
