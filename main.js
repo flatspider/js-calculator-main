@@ -3,7 +3,7 @@
 
 
 // Empty array used for calculating answers
-const calculation = [];
+const calculation = []; // You can use const because the modification to the array (adding numbers) does not count as changing it.
 
 const $clearButton = document.querySelector(".clear");
 // const $positiveNegativeButton = document.querySelector(".plus-minus");
@@ -46,7 +46,7 @@ function pushNumber() {
     // This function should alert()s the number associated with its event argument when called; 
     // add this function as an event listener for the number buttons
 
-    let number = this.innerHTML;
+    let number = this.innerHTML; // If event is passed, can use event.target.value;
     calculation.push(number);
     //console.log(number);
     alert(number);
@@ -65,15 +65,17 @@ function calculate() {
     // Define a function named calculate that alerts() = when pressed;
     //alert("=");
 
+    // Can simplify this to initialize variables as empty strings instead of arrays. 
+
     const operatorArray = ['+', '-', 'x', '/', '÷', '×'];
 
-    let useOperator = []; // What function should be called? 
+    let useOperator = []; // What mathematical function should be used on this array? 
 
-    let firstNumber = []; // The first number typed into calculator
+    let firstNumber = []; // The first number loaded into the math expression
 
-    let secondNumber = []; // The second number typed in.
+    let secondNumber = []; // The second number loaded into the math expression
 
-    let isSecondNumber = false; // Which number is this array being used for? 
+    let isSecondNumber = false; // This boolean determines which Number array to add the digits 
  
     for (let i = 0; i < calculation.length; i++){
 
@@ -98,7 +100,7 @@ function calculate() {
 
     let joinedNumber1 = firstNumber.join("");
     let joinedNumber2 = secondNumber.join("");
-    let joinedOperator = useOperator.join("");
+   /* let joinedOperator = */ useOperator.join("");
 
 
     /*
@@ -108,7 +110,7 @@ function calculate() {
     */
 
 
-
+ 
 
     if (useOperator == "+") {
         alert(sum(joinedNumber1, joinedNumber2));
@@ -136,7 +138,9 @@ function calculate() {
 
 
 
+    // Below are the mathematical operation functions
 
+    // Will probably want to parseFloat to account for decimal usage.
 
     function sum(num1, num2) {
         return parseInt(num1) + parseInt(num2);
@@ -153,10 +157,6 @@ function calculate() {
     function divide(num1, num2){
         return parseInt(num1) / parseInt(num2);
     }
-
-
-
-
 
 
 })();
