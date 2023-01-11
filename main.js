@@ -7,8 +7,10 @@ const calculation = []; // You can use const because the modification to the arr
 
 const $clearButton = document.querySelector(".clear");
 // const $positiveNegativeButton = document.querySelector(".plus-minus");
-const $percentButton = document.querySelector(".percent");
+// const $percentButton = document.querySelector(".percent");
 const $equalityButton = document.querySelector('.equal-sign[value="="]');
+
+const $calculatorDisplay = document.querySelector(".calculator-screen");
 
 //const $decimalButton = document.querySelector('.decimal');
 
@@ -27,7 +29,8 @@ for(let i = 0; i < $operatorPress.length; i++){
 // Action buttons
 $clearButton.addEventListener('click', () => {
     //console.log("clear");
-    calculation.length = 0; // Empties out calculation bracket. Strict mode does not like setting array to [].
+    calculation.length = 0;
+    $calculatorDisplay.value = 0; // Empties out calculation bracket. Strict mode does not like setting array to [].
 });
 
 /* Not currently active
@@ -49,7 +52,22 @@ function pushNumber() {
     let number = this.innerHTML; // If event is passed, can use event.target.value;
     calculation.push(number);
     //console.log(number);
-    alert(number);
+
+
+
+    // If the number is zero, and length of value is 1, replace the number.
+    // If there is any number other than zero in the calculator, stack the next digit onto it. 
+
+
+    if ('0'.includes($calculatorDisplay.value) && $calculatorDisplay.value.length === 1) {
+        $calculatorDisplay.value = number;
+    } else if ('+-÷×'.includes($calculatorDisplay.value)) {
+        $calculatorDisplay.value = number;
+    } else {
+        $calculatorDisplay.value = $calculatorDisplay.value + number;
+    }
+
+    //alert(number);
 };
 
 function pushOperator() {
@@ -57,7 +75,8 @@ function pushOperator() {
     // add this function as an event listener for the operator buttons
     let operatorValue = this.innerHTML;
     calculation.push(operatorValue);
-    alert(operatorValue);
+    $calculatorDisplay.value = operatorValue;
+    //alert(operatorValue);
 };
 
 function calculate() {
@@ -110,19 +129,19 @@ function calculate() {
     */
 
 
- 
+    let showCalculation = 0;
 
     if (useOperator == "+") {
-        alert(sum(joinedNumber1, joinedNumber2));
+        showCalculation = sum(joinedNumber1, joinedNumber2);
     } else if (useOperator == "-") {
-        alert(subtract(joinedNumber1, joinedNumber2));
+        showCalculation = subtract(joinedNumber1, joinedNumber2);
     } else if (useOperator == "×") {
-        alert(multiply(joinedNumber1, joinedNumber2));
+        showCalculation = multiply(joinedNumber1, joinedNumber2);
     } else {
-         alert(divide(joinedNumber1, joinedNumber2));
+        showCalculation = divide(joinedNumber1, joinedNumber2);
     }
 
-
+    $calculatorDisplay.value = showCalculation;
 
     // If array element = /+-*, add to operator array and set secondNumber to true.
 
